@@ -77,11 +77,11 @@ class AppAuto {
         System.out.println("Lista auto ----------");
         show(autoList);
         System.out.println("\n****Sort an *****\n");
-        show(sort_an(autoList));
+        show(sortAn(autoList));
         System.out.println("\n***sort motor****\n");
-        show(sort_capMotor(autoList));
+        show(sortCapMotor(autoList));
         System.out.println("\n***sort nume****\n");
-        show(sort_Nume(autoList));
+        show(sortNume(autoList));
         System.out.println("\nmasini nu mai vechi de 10 ani");
         show(getCarByAge(autoList, 10));
         System.out.println("\nmasini cu motor mai mare de 3000 cm3");
@@ -99,21 +99,21 @@ class AppAuto {
         carList.stream().forEach(p -> System.out.println(p));
     }
 
-    private List<Auto> sort_an(List<Auto> carList) {
+    private List<Auto> sortAn(List<Auto> carList) {
         List<Auto> sortedList = carList.stream()
                 .sorted(Comparator.comparing(Auto::getAnProducere))
                 .collect(Collectors.toList());
         return sortedList;
     }
 
-    private List<Auto> sort_capMotor(List<Auto> carList) {
+    private List<Auto> sortCapMotor(List<Auto> carList) {
         List<Auto> sortedList = carList.stream()
                 .sorted(Comparator.comparingDouble(Auto::getCapMotor))
                 .collect(Collectors.toList());
         return sortedList;
     }
 
-    private List<Auto> sort_Nume(List<Auto> carList) {
+    private List<Auto> sortNume(List<Auto> carList) {
         List<Auto> sortedList = carList.stream()
                 .sorted(Comparator.comparing(Auto::getProducator))
                 .collect(Collectors.toList());
